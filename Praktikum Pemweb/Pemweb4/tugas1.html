@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hitung Nilai</title>
+    </head>
+    <body>
+        <form onsubmit="return false;">
+        <table>
+            <tr>
+                <td><label for="nilaiInput">Masukkan Nilai:</label></td>
+                <td><input type="number" name="nilaiInput" id="nilaiInput" min="0" max="100"></td>
+            </tr>
+        </table>
+        <button type="button" onClick="konversiNilai()">Cek Nilai</button>
+        </form>
+        <div id="hasilNilai"></div>
+        <script>
+            function konversiNilai() {
+            let nilai = parseInt(document.getElementById('nilaiInput').value);
+            let output = document.getElementById('hasilNilai');
+            if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+                output.innerHTML = "Masukkan angka yang valid antara 0 - 100!";
+                return;
+            }
+        
+        let grade = "";
+            if (nilai >= 81 && nilai <= 100) {
+                grade = "A";
+            } else if (nilai >= 61 && nilai <= 80) {
+                grade = "B";
+            } else if (nilai >= 41 && nilai <= 60) {
+                grade = "C";
+            } else if (nilai >= 21 && nilai <= 40) {
+                grade = "D";
+            } else {
+                grade = "E";
+            }
+        
+            output.innerHTML = `Nilai Angka: ${nilai} <br> Grade Huruf: ${grade}`
+            }
+        </script>
+    </body>
+</html>

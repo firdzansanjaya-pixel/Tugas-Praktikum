@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Praktikum Pemweb</title>
+        <link rel="stylesheet" type="text/css" href="form.css">
+    </head>
+    <body>
+        <script>
+            function validasiForm(event) {
+                event.preventDefault();
+
+
+                const nama = document.getElementById('nama').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const komentar = document.getElementById('komentar').value.trim();
+
+
+                if (nama === '' || email === '' || komentar === '') {
+                    alert('Tidak diperbolehkan ada satupun field yang kosong!');
+                    return false;
+                }
+
+                const regexNama = /^[A-Za-z\s]+$/;
+                if (!regexNama.test(nama)) {
+                    alert('Tidak diperbolehkan field nama memiliki angka atau simbol!');
+                    return false;
+                }
+
+                alert('Validasi berhasil! Data siap disimpan.');
+                document.getElementById('myForm').reset();
+            }
+        </script>
+        <form id="myForm" onsubmit="return validasiForm(event)">
+            <table>
+                <tr>
+                    <td><label for="nama">Nama </label></td>
+                    <td>:</td>
+                    <td><input type="text" name="nama" id="nama" class="border"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email </label></td>
+                    <td>:</td>
+                    <td><input type="email" name="email" id="email" class="border"></td>
+                </tr>
+                <tr>
+                    <td><label for="komentar">Komentar</label></td>
+                    <td>:</td>
+                    <td><textarea name="komentar" id="komentar" cols="20" rows="5" class="border"></textarea></td>
+                </tr>
+            </table>
+            <input type="submit" value="Simpan" class="simpan">
+        </form>
+    </body>
+</html>

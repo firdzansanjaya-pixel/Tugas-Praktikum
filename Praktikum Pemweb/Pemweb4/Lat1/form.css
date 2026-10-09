@@ -1,0 +1,9 @@
+.border{
+    border-style: double;
+    border-color: lightblue;
+}
+.simpan{
+    border-style: groove;
+    font-family: sans-serif;
+    border-color: lightblue;
+}
